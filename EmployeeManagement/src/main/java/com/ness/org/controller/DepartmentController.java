@@ -51,23 +51,21 @@ public class DepartmentController {
 		 if(findById==null)
 			 return ResponseEntity.ok().body("Department not exist with this "+findById);
 		 departmentRepo.delete(findById);
-	       String msg="Department deleted successfully";
+	       String msg="Department deleted successfully ...";
 	        return ResponseEntity.ok().body(msg);
 	 }
 	 
-	 @PutMapping("/department/{id}")
-	    public ResponseEntity <Department> updateUser(
-	        @PathVariable(value = "id") Integer departmentId,
-	       @RequestBody Department department) throws ResourceNotFoundException 
-	 {
-	        Department dept = departmentRepo.findById(departmentId).get();
-	          
-	            dept.setDeptName(department.getDeptName());
-	            dept.setCityLocation(department.getCityLocation());
-	     
-	         Department updatedUser = departmentRepo.save(dept);
-	        return ResponseEntity.ok(updatedUser);
-	    }
+		@PutMapping("/department/{id}")
+		public ResponseEntity<Department> updateUser(@PathVariable(value = "id") Integer departmentId,
+				@RequestBody Department department) throws ResourceNotFoundException {
+			Department dept = departmentRepo.findById(departmentId).get();
+
+			dept.setDeptName(department.getDeptName());
+			dept.setCityLocation(department.getCityLocation());
+
+			Department updatedUser = departmentRepo.save(dept);
+			return ResponseEntity.ok(updatedUser);
+		}
 	 
 	        
 	
