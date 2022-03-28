@@ -51,7 +51,7 @@ public class DepartmentController {
 		 if(findById==null)
 			 return ResponseEntity.ok().body("Department not exist with this "+findById);
 		 departmentRepo.delete(findById);
-	       String msg="Department deleted successfully ...";
+	       String msg="Department deleted successfully ......";
 	        return ResponseEntity.ok().body(msg);
 	 }
 	 
